@@ -1,0 +1,150 @@
+-Como usuarie de QueMePongo quiero ver todas las prendas que tengo en mi guardarropas desde el navegador para poder administrarlas
+
+http://www.quemepongo.com/usuarios/{id}/guardaropa
+
+  {
+    "path": “GET” + “prendas del usuario {id}”,
+    "head": "JSON",
+    "body": “id, tipo, material, colorPrincipal, trama”,
+  }
+
+Código 200, OK
+
+{
+  {
+    "id": 1,
+    "tipo": "pantalon",
+    "material": “algodon”,
+    "colorPrincipal": “azul”,
+    "trama": “lisa”
+  },
+  {
+     "id": 2,
+    "tipo": "campera",
+    "material": “cuero”,
+    "colorPrincipal": “negra”,
+    "trama": “lisa”
+  },
+  {
+     "id": 3,
+    "tipo": "pollera",
+    "material": “gabardina”,
+    "colorPrincipal": “roja”,
+    "trama": “rayada”
+  }
+}
+
+- Como usuario de QueMePongo, quiero crear una prenda desde el navegador
+
+http://www.quemepongo.com/prenda
+
+  {
+    "path": “POST” + “crear una prenda”,
+    "head": "JSON",
+    "body": “id, tipo, material, colorPrincipal, trama”,
+  }
+
+Código 201, CREADA
+
+{
+    201,
+    "head": "JSON",
+    "body": 4 //El Id de la prenda que se creó
+  }
+
+- Como usuarie de QueMePongo quiero ver una prenda en particular que tengo en mi guardarropas para poder editarla
+
+http://www.quemepongo.com/usuarios/{id}/guardaropa/{id_prenda}
+
+  {
+    "path": “PUT” + “editar prenda {id_prenda}”,
+    "head": "JSON",
+    "body": “id, tipo, material, colorPrincipal, trama”, //Atributos a editar
+  }
+
+Código 200, OK
+
+{
+    "id": id_prenda,
+    "tipo": "pantalon",
+    "material": “algodon”,
+    "colorPrincipal": “violeta”, //se modificó el color antes era azul
+    "trama": “lisa”
+}
+
+- Como usuarie de QueMePongo, quiero poder eliminar una prenda de mi guardarropas
+
+http://www.quemepongo.com/usuarios/{id}/guardaropa/{id_prenda}
+
+  {
+    "path": “DELETE” + “eliminar prenda {id_prenda}”,
+    "head": "JSON",
+    "body": “ ”
+  }
+
+Código 200, OK
+
+{
+    201,
+    "head": "JSON",
+    "body": 4 //El Id de la prenda que se eliminó
+
+ }
+
+- Como usuarie de QueMePongo, quiero poder ver mis eventos para administrarlos
+
+http://www.quemepongo.com/usuarios/{id}/eventos
+
+  {
+    "path": “GET” + “eventos del usuario {id}”,
+    "head": "JSON",
+    "body": “”
+  }
+
+Código 200, OK
+
+{
+  {
+    "id": 1,
+    "tipo": "fiesta",
+    "fecha": “23/10/2021”,
+    "descripcion": “...”,
+  },
+  {
+     "id": 2,
+    "tipo": "trabajo",
+    "fecha": “15/10/2021”,
+    "descripcion": “...”,
+  }
+}
+
+- Como usuarie de QueMePongo, quiero poder abrir las sugerencias de prendas para un evento en mi navegador
+
+http://www.quemepongo.com/usuarios/{id}/eventos/{id_evento}/sugerencias
+
+  {
+    "path": “GET” + “sugerencias del evento{id_evento}”,
+    "head": "JSON",
+    "body": “”
+  }
+
+Código 200, OK
+
+//las prendas sugeridas
+{
+ {
+    "id": 1,
+    "tipo": "pantalon",
+    "material": “algodon”,
+    "colorPrincipal": “azul”,
+    "trama": “lisa”
+  },
+  {
+     "id": 2,
+    "tipo": "campera",
+    "material": “cuero”,
+    "colorPrincipal": “negra”,
+    "trama": “lisa”
+  },
+}
+
